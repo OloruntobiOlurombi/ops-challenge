@@ -20,7 +20,7 @@ servers=[
 Vagrant.configure(2) do |config|
   servers.each do |machine|
     config.vm.define machine[:hostname] do |node|
-        machine [:provisions].each do |script|
+        machine[:provisions].each do |script|
            node.vm.provision :shell, :path => script
         end
       node.vm.box = machine[:box]
